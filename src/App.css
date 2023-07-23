@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+/* 
+ .notes__header input {
+    padding: 0.7rem 1rem;
+     background: transparent; 
+     background: #E8E8E8;
+    border: none;
+    border-radius: 0.6rem;
+    color: #261c1c;
+    font-size: 1.1rem;
+    width: 40vw;
+    margin: 5.5rem;
+}  */
+
+/* .notes__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; */
+    /* padding: 0 1.6rem 1.5rem; */
+    /* background: none;
+    z-index: 9; */
+/* } */

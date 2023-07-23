@@ -24,7 +24,7 @@ const Home = () => {
                 <Routes>
                     <Route path="/" element={<Notes />} />
                     <Route path="/archives" element={<Archives notes={notes} setNotes={setNotes}/>} />
-                    <Route path="/delete" element={<DeleteNotes setNotes={setNotes} />} />
+                    <Route path="/delete" element={<DeleteNotes notes={notes} setNotes={setNotes} />} />
                 </Routes>
                 
             </Router>    

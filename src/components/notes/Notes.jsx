@@ -27,6 +27,7 @@ const reorder = (list, startIndex, endIndex) => {
 const Notes = () => {
 
     const { notes, setNotes } = useContext(DataContext);
+    
 
     const onDragEnd = (result) => {
         if (!result.destination) 
