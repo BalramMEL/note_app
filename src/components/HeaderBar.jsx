@@ -2,7 +2,10 @@ import * as React from 'react';
 import { styled} from '@mui/material/styles';
 import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
 import logooo from '../images/logooo.png'
-import {Menu} from '@mui/icons-material';
+import { Menu } from '@mui/icons-material';
+import { useState, useEffect } from "react";
+import Notes from './notes/Notes';
+
 
 const Header = styled(AppBar)`
     z-index:1201;
@@ -17,9 +20,19 @@ const Heading = styled(Typography)`
     margin-left: 25px;
 `
 
-const HeaderBar = ({ open, handleDrawer }) => {    
+const SearchBar = styled(Typography)`        
+    background: #FFFFFF;
+    border: none;    
+    color: #F0F0F0;
+    font-size: 1.1rem;
+    width: 40vw;
+    margin: 5.5rem;    
+`
+
+const HeaderBar = ({ open, handleDrawer }) => {  
+
     return (
-    <Header open={open}>
+      <Header open={open}>
         <Toolbar>
           <IconButton
             onClick={handleDrawer}
@@ -34,7 +47,20 @@ const HeaderBar = ({ open, handleDrawer }) => {
                     style={{width: 45}}
                 />
           <Heading>Notes</Heading>
-        </Toolbar>
+
+          
+          <SearchBar className="notes__header">
+            
+            <input 
+                style={{width: '40vw', border: 'none', padding: '0.85rem 1rem', background: '#F0F0F0', borderRadius: "10px",  outline: 'none'}}
+                type="Search"                
+                placeholder="Search..."
+                autoFocus                         
+            />           
+            
+          </SearchBar> 
+          </Toolbar>
+
       </Header>
     )
 }

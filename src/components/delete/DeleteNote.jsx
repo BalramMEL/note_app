@@ -1,37 +1,52 @@
 import { useContext } from 'react';
 
-import { Box, Grid } from '@mui/material';
+import { Card, CardContent, CardActions, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-
+import { RestoreFromTrashOutlined as Restore, DeleteForeverOutlined as Delete } from '@mui/icons-material';
 import { DataContext } from '../../context/DataProvider';
 
-//components
-import DeleteNote from './DeleteNote';
+const StyledCard = styled(Card)`
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    width: 240px;
+    margin: 8px;
+    box-shadow: none;
+`
 
-const DrawerHeader = styled('div')(({ theme }) => ({
-    ...theme.mixins.toolbar,
-}));
+const DeleteNote = ({ note }) => {
 
-const DeleteNotes = () => {
+    const { deleteNotes, setNotes, setDeleteNotes } = useContext(DataContext);
 
-    const { deleteNotes } = useContext(DataContext);
+    const restoreNote = (note) => {
+        const updatedNotes = deleteNotes.filter(data => data.id !== note.id);
+        setDeleteNotes(updatedNotes);
+        setNotes(prevArr => [note, ...prevArr]);
+    }
+
+    const removeNote = (deleteNote) => {
+        const updatedNotes = deleteNotes.filter(data => data.id !== deleteNote.id);
+        setDeleteNotes(updatedNotes);
+    }
 
     return (
-        <Box sx={{ display: 'flex', width: '100%' }}>
-            <Box sx={{ p: 3, width: '100%' }}>
-                <DrawerHeader />
-                <Grid container>
-                    {
-                        deleteNotes.map(deleteNote => (
-                            <Grid item>
-                                <DeleteNote deleteNote={deleteNote} />
-                            </Grid>
-                        ))
-                    }
-                </Grid>
-            </Box>
-        </Box>
+        <StyledCard>
+                <CardContent>
+                    <Typography>{note.heading}</Typography>
+                    <Typography>{note.text}</Typography>
+                </CardContent>
+                <CardActions>
+                    <Delete 
+                        fontSize="small" 
+                        style={{ marginLeft: 'auto' }} 
+                        onClick={() => removeNote(note)}
+                    />
+                    <Restore 
+                        fontSize="small"
+                        onClick={() => restoreNote(note)}
+                    />
+                </CardActions>
+        </StyledCard>
     )
 }
 
-export default DeleteNotes;
+export default DeleteNote;

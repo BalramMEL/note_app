@@ -5,6 +5,7 @@ import { Box, Drawer as MuiDrawer } from '@mui/material';
 // Components
 import HeaderBar from './HeaderBar';
 import NavList from './NavList';
+import Notes from './notes/Notes';
 
 const drawerWidth = 240;
 
@@ -69,8 +70,7 @@ const SwipeDrawer = () => {
       <Drawer variant="permanent" open={open}>
         <DrawerHeader></DrawerHeader>      
         <NavList />   
-      </Drawer>
-      
+      </Drawer>           
     </Box>
   );
 }

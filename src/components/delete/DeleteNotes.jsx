@@ -28,8 +28,7 @@ const DeleteNotes = () => {
                                     </Grid>
                                 ))
                             }
-                        </Grid>
-                               
+                        </Grid>                               
             </Box>
 
         </Box>
